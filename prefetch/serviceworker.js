@@ -11,6 +11,7 @@ self.addEventListener('install', function (event) {
   var now = Date.now();
 
   var urlsToPrefetch = [
+    '/',
     'assets/html/contactus_prefetched.html',
   ];
 
