@@ -1,0 +1,35 @@
+<html>
+
+<head>
+  <title>
+    Service Worker Prefetch
+  </title>
+</head>
+
+<body>
+
+  Following links can be accessed OFFLINE!
+  <a href="./assets/html/contactus_prefetched.html">Contact Us</a>
+
+  Following links cannot be accessed OFFLINE!
+  <a href="./assets/html/support_notprefetched.html">Support</a>
+
+  <script>
+    async function initialize() {
+      if ('serviceWorker' in navigator) {
+        try {
+          await navigator.serviceWorker.register('./serviceworker.js', { scope: './' });
+
+          console.log('Successfully registered service worker');
+        } catch (error) {
+          console.log("Error", error)
+          console.log('Failed to register service worker');
+        }
+      }
+    }
+
+    initialize();
+  </script>
+</body>
+
+</html>
